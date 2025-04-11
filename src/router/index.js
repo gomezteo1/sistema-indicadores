@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import AboutView from '@/views/AboutView.vue';
 import HomeView from '@/views/HomeView.vue';
 
+
 // ############## ->No dependen de otras tablas 
 import SeccionView from '@/views/SeccionView.vue';
 import SubSeccionView from '@/views/SubSeccionView.vue';
@@ -19,7 +20,7 @@ import FuenteView from '@/views/FuenteView.vue';
 import RepresenVisualView from '@/views/RepresenVisualView.vue';
 
 //## Si dependen de otras tablas ##
-
+import ActorView from '@/views/ActorView.vue';
 import IndicadoresView from '@/views/IndicadoresView.vue';
 import ReportesView from '@/views/ReportesView.vue';
 import ConfiguracionView from '@/views/ConfiguracionView.vue';
@@ -42,6 +43,7 @@ const routes = [
   { path: '/represenvisual', component: RepresenVisualView },
   { path: '/reportes', component: ReportesView },
   
+  { path: '/actor', component: ActorView },
   { path: '/configuracion', component: ConfiguracionView },
   
 ];

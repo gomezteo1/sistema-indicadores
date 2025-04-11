@@ -82,5 +82,11 @@ export const createRepresenVisual = (data) => api.post('/represenvisual', data);
 export const updateRepresenVisual = (id, data) => api.put(`/represenvisual/${id}`, data);
 export const deleteRepresenVisual = (id) => api.delete(`/represenvisual/${id}`);
 
+//Actor
+export const getActores = () => api.get('/actor');
+export const createActor = (data) => api.post('/actor', data);
+export const updateActor = (id, data) => api.put(`/actor/${id}`, data);
+export const deleteActor = (id) => api.delete(`/actor/${id}`);
 export const getAbout= () => api.get('/about');
+
 export default api;

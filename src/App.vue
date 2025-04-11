@@ -16,10 +16,24 @@
           <li><RouterLink to="/tipoactor">Tipo Actor</RouterLink></li>
           <li><RouterLink to="/tipoindicador">Tipo Indicador</RouterLink></li>
           <li><RouterLink to="/unidadmedicion">Unidad de Mediciones</RouterLink></li>
-         
-          
-          
           <li><RouterLink to="/login">Login</RouterLink></li>
+        </ul>
+      
+        <ul class="nav-list">
+          <li><RouterLink to="/actor">Actor</RouterLink></li>
+          <li><RouterLink to="/#">#</RouterLink></li>
+          <li><RouterLink to="/#">#</RouterLink></li>
+          <li><RouterLink to="/#">#</RouterLink></li>
+          <li><RouterLink to="/#">#</RouterLink></li>
+          <li><RouterLink to="/#">#</RouterLink></li>
+          <li><RouterLink to="/#">#</RouterLink></li>
+          <li><RouterLink to="/#">#</RouterLink></li>
+          <li><RouterLink to="/#">#</RouterLink></li>
+          <li><RouterLink to="/#">#</RouterLink></li>
+          <li><RouterLink to="/#">#</RouterLink></li>
+          <li><RouterLink to="/#">#</RouterLink></li>
+          <li><RouterLink to="/#">#</RouterLink></li>
+          <li><RouterLink to="/#">Cerrar Sesion</RouterLink></li>
         </ul>
       </nav>
     </header>
