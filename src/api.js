@@ -101,4 +101,11 @@ export const createFuentePorIndicador = (data) => api.post('/fuentesporindicador
 export const updateFuentePorIndicador = (id, data) => api.put(`/fuentesporindicador/${id}`, data);
 export const deleteFuentePorIndicador = (id) => api.delete(`/fuentesporindicador/${id}`);
 
+
+//Literal
+export const getLiterales = () => api.get('/literal');
+export const createLiteral = (data) => api.post('/literal', data);
+export const updateLiteral = (id, data) => api.put(`/literal/${id}`, data);
+export const deleteLiteral = (id) => api.delete(`/literal/${id}`);
+
 export default api;
