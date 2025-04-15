@@ -89,4 +89,10 @@ export const updateActor = (id, data) => api.put(`/actor/${id}`, data);
 export const deleteActor = (id) => api.delete(`/actor/${id}`);
 export const getAbout= () => api.get('/about');
 
+//Articulo
+export const getArticulos = () => api.get('/articulo');
+export const createArticulo = (data) => api.post('/articulo', data);
+export const updateArticulo = (id, data) => api.put(`/articulo/${id}`, data);
+export const deleteArticulo = (id) => api.delete(`/articulo/${id}`);
+
 export default api;

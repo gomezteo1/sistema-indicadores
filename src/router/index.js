@@ -21,6 +21,7 @@ import RepresenVisualView from '@/views/RepresenVisualView.vue';
 
 //## Si dependen de otras tablas ##
 import ActorView from '@/views/ActorView.vue';
+import ArticuloView from '@/views/ArticuloView.vue';
 import IndicadoresView from '@/views/IndicadoresView.vue';
 import ReportesView from '@/views/ReportesView.vue';
 import ConfiguracionView from '@/views/ConfiguracionView.vue';
@@ -44,6 +45,7 @@ const routes = [
   { path: '/reportes', component: ReportesView },
   
   { path: '/actor', component: ActorView },
+  { path: '/articulo', component: ArticuloView },
   { path: '/configuracion', component: ConfiguracionView },
   
 ];
