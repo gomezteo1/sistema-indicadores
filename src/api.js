@@ -114,4 +114,10 @@ export const createNumeral = (data) => api.post('/numeral', data);
 export const updateNumeral = (id, data) => api.put(`/numeral/${id}`, data);
 export const deleteNumeral = (id) => api.delete(`/numeral/${id}`);
 
+//Paragrafo
+export const getParagrafos = () => api.get('/paragrafo');
+export const createParagrafo = (data) => api.post('/paragrafo', data);
+export const updateParagrafo = (id, data) => api.put(`/paragrafo/${id}`, data);
+export const deleteParagrafo = (id) => api.delete(`/paragrafo/${id}`);
+
 export default api;
