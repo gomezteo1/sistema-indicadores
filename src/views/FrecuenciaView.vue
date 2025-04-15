@@ -1,54 +1,77 @@
 <template>
   <div class="fondo">
     <div class="container">
-      <h1 class="title">Gestión de Frecuencias</h1>
-      <p class="subtitle">Administra las frecuencias disponibles en el sistema.</p>
+      <h1 class="title">Gestión de Actores</h1>
+      <p class="subtitle">Administra los actores disponibles en el sistema.</p>
 
-      <!-- Formulario para agregar frecuencia -->
+      <!-- Formulario para agregar actor -->
       <div class="form-group">
-        <label for="frecuencia">Frecuencia</label>
-        <input
-          v-model="nuevoFrecuencia"
-          type="text"
-          name="frecuencia"
-          placeholder="Nombre de la frecuencia"
-          class="form-control"
-        />
-        <button @click="agregarFrecuencia" class="btn btn-primary">Agregar</button>
+        <label>ID del actor</label>
+        <input v-model="nuevoActor.id" type="text" class="form-control" placeholder="ID" />
+
+        <label>Nombre del actor</label>
+        <input v-model="nuevoActor.nombre" type="text" class="form-control" placeholder="Nombre" />
+
+        <label>Tipo de actor</label>
+        <select v-model="nuevoActor.fkIdTipoActor" class="form-control">
+          <option disabled value="">Selecciona un tipo</option>
+          <option v-for="tipo in tiposActor" :key="tipo.id" :value="tipo.id">
+            {{ tipo.nombre }}
+          </option>
+        </select>
+
+        <button @click="agregarActor" class="btn btn-primary mt-2">Agregar</button>
       </div>
 
-      <!-- Tabla de frecuencias -->
+      <!-- Tabla de actores -->
       <table class="table">
         <thead>
           <tr>
             <th>ID</th>
             <th>Nombre</th>
+            <th>Tipo de Actor</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="frecuencia in frecuencias" :key="frecuencia.id">
-            <td>{{ frecuencia.id }}</td>
-            <td v-if="frecuenciaEditando !== frecuencia.id">{{ frecuencia.nombre }}</td>
+          <tr v-for="actor in actores" :key="actor.id">
+            <td>{{ actor.id }}</td>
+
+            <!-- Campo nombre -->
+            <td v-if="actorEditando !== actor.id">{{ actor.nombre }}</td>
             <td v-else>
-              <input v-model="frecuenciaEditado" type="text" class="form-control" />
+              <input v-model="actorEditado.nombre" type="text" class="form-control" />
             </td>
+
+            <!-- Campo tipo -->
+            <td v-if="actorEditando !== actor.id">
+              {{ actor.tipoActor?.nombre || "Desconocido" }}
+            </td>
+            <td v-else>
+              <select v-model="actorEditado.fkIdTipoActor" class="form-control">
+                <option v-for="tipo in tiposActor" :key="tipo.id" :value="tipo.id">
+                  {{ tipo.nombre }}
+                </option>
+              </select>
+            </td>
+
+            <!-- Botones -->
             <td>
               <button
-                v-if="frecuenciaEditando !== frecuencia.id"
-                @click="editarFrecuencia(frecuencia)"
+                v-if="actorEditando !== actor.id"
+                @click="editarActor(actor)"
                 class="btn btn-warning"
               >
                 Modificar
               </button>
               <button
                 v-else
-                @click="guardarEdicion(frecuencia.id)"
+                @click="guardarEdicion(actor.id)"
                 class="btn btn-success"
               >
                 Guardar
               </button>
-              <button @click="eliminarFrecuencia(frecuencia.id)" class="btn btn-danger">
+              <button @click="eliminarActor(actor.id)" class="btn btn-danger">
                 Eliminar
               </button>
             </td>
@@ -65,74 +88,109 @@ import { ref, onMounted } from "vue";
 
 export default {
   setup() {
-    const apiUrl = "https://localhost:7222/api/frecuencia"; // URL base del API
-    const frecuencias = ref([]);
-    const nuevoFrecuencia = ref("");
-    const frecuenciaEditando = ref(null);
-    const frecuenciaEditado = ref("");
+    const apiUrl = "https://localhost:7222/api/actor";
+    const apiTipoUrl = "https://localhost:7222/api/tipoactor";
 
-    const cargarFrecuencias = async () => {
+    const actores = ref([]);
+    const tiposActor = ref([]);
+
+    const nuevoActor = ref({
+      id: "",
+      nombre: "",
+      fkIdTipoActor: ""
+    });
+
+    const actorEditando = ref(null);
+    const actorEditado = ref({
+      nombre: "",
+      fkIdTipoActor: ""
+    });
+
+    const cargarActores = async () => {
       try {
         const response = await axios.get(apiUrl);
-        frecuencias.value = response.data;
+        actores.value = response.data;
       } catch (error) {
-        console.error("Error al cargar las frecuencias:", error);
+        console.error("Error al cargar actores:", error);
       }
     };
 
-    const agregarFrecuencia = async () => {
-      if (!nuevoFrecuencia.value.trim()) return;
+    const cargarTiposActor = async () => {
       try {
-        await axios.post(apiUrl, { nombre: nuevoFrecuencia.value });
-        nuevoFrecuencia.value = "";
-        cargarFrecuencias();
+        const response = await axios.get(apiTipoUrl);
+        tiposActor.value = response.data;
       } catch (error) {
-        console.error("Error al agregar la frecuencia:", error);
+        console.error("Error al cargar tipos de actor:", error);
       }
     };
 
-    const editarFrecuencia = (frecuencia) => {
-      frecuenciaEditando.value = frecuencia.id;
-      frecuenciaEditado.value = frecuencia.nombre;
+    const agregarActor = async () => {
+      try {
+        const payload = {
+          id: parseInt(nuevoActor.value.id),
+          nombre: nuevoActor.value.nombre,
+          fkIdTipoActor: parseInt(nuevoActor.value.fkIdTipoActor)
+        };
+
+        await axios.post(apiUrl, payload);
+
+        nuevoActor.value = { id: "", nombre: "", fkIdTipoActor: "" };
+        cargarActores();
+      } catch (error) {
+        console.error("Error al agregar actor:", error);
+      }
+    };
+
+    const editarActor = (actor) => {
+      actorEditando.value = actor.id;
+      actorEditado.value = {
+        nombre: actor.nombre,
+        fkIdTipoActor: actor.fkIdTipoActor
+      };
     };
 
     const guardarEdicion = async (id) => {
-      if (!frecuenciaEditado.value.trim()) return;
-
       try {
-        await axios.put(`${apiUrl}/${id}`, { id: id, nombre: frecuenciaEditado.value });
+        await axios.put(`${apiUrl}/${id}`, {
+          id: id,
+          nombre: actorEditado.value.nombre,
+          fkIdTipoActor: actorEditado.value.fkIdTipoActor
+        });
 
-        // Resetear valores después de la edición
-        frecuenciaEditando.value = null;
-        frecuenciaEditado.value = "";
-        cargarFrecuencias();
+        actorEditando.value = null;
+        actorEditado.value = { nombre: "", fkIdTipoActor: "" };
+        cargarActores();
       } catch (error) {
-        console.error("Error al modificar la frecuencia:", error);
+        console.error("Error al editar actor:", error);
       }
     };
 
-    const eliminarFrecuencia = async (id) => {
+    const eliminarActor = async (id) => {
       try {
         await axios.delete(`${apiUrl}/${id}`);
-        cargarFrecuencias();
+        cargarActores();
       } catch (error) {
-        console.error("Error al eliminar la frecuencia:", error);
+        console.error("Error al eliminar actor:", error);
       }
     };
 
-    onMounted(cargarFrecuencias);
+    onMounted(() => {
+      cargarTiposActor();
+      cargarActores();
+    });
 
     return {
-      frecuencias,
-      nuevoFrecuencia,
-      frecuenciaEditando,
-      frecuenciaEditado,
-      agregarFrecuencia,
-      editarFrecuencia,
+      actores,
+      tiposActor,
+      nuevoActor,
+      actorEditando,
+      actorEditado,
+      agregarActor,
+      editarActor,
       guardarEdicion,
-      eliminarFrecuencia,
+      eliminarActor
     };
-  },
+  }
 };
 </script>
 
@@ -183,7 +241,7 @@ label {
   color: #333;
 }
 
-input {
+input, select {
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
@@ -194,7 +252,7 @@ input {
   transition: border-color 0.3s ease;
 }
 
-input:focus {
+input:focus, select:focus {
   border-color: #2e7d32; /* Verde oscuro al enfocar */
   outline: none;
 }
@@ -207,6 +265,7 @@ input:focus {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-right: 5px;
 }
 
 .btn-primary {
@@ -260,6 +319,7 @@ input:focus {
 .table td {
   padding: 12px;
   border-bottom: 1px solid #ddd;
+  text-align: center;
 }
 
 .table th {
@@ -268,11 +328,25 @@ input:focus {
   font-weight: bold;
 }
 
-.table td {
-  text-align: center;
-}
-
 .table tr:hover {
   background-color: #f5f5f5; /* Fondo gris claro al pasar el mouse */
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 </style>
