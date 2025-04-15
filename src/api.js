@@ -95,4 +95,10 @@ export const createArticulo = (data) => api.post('/articulo', data);
 export const updateArticulo = (id, data) => api.put(`/articulo/${id}`, data);
 export const deleteArticulo = (id) => api.delete(`/articulo/${id}`);
 
+//FuentesPorIndicador
+export const getFuentesPorIndicadores = () => api.get('/fuentesporindicador');
+export const createFuentePorIndicador = (data) => api.post('/fuentesporindicador', data);
+export const updateFuentePorIndicador = (id, data) => api.put(`/fuentesporindicador/${id}`, data);
+export const deleteFuentePorIndicador = (id) => api.delete(`/fuentesporindicador/${id}`);
+
 export default api;
