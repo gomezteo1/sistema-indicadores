@@ -24,6 +24,7 @@ import ActorView from '@/views/ActorView.vue';
 import ArticuloView from '@/views/ArticuloView.vue';
 import FuentesPorIndicadorView from '@/views/FuentesPorIndicadorView.vue';
 import LiteralView from '@/views/LiteralView.vue';
+import NumeralView from '@/views/NumeralView.vue';
 import IndicadoresView from '@/views/IndicadoresView.vue';
 import ReportesView from '@/views/ReportesView.vue';
 import ConfiguracionView from '@/views/ConfiguracionView.vue';
@@ -50,6 +51,7 @@ const routes = [
   { path: '/articulo', component: ArticuloView },
   { path: '/fuentesporindicador', component: FuentesPorIndicadorView },
   { path: '/literal', component: LiteralView },
+  { path: '/numeral', component: NumeralView },
   { path: '/configuracion', component: ConfiguracionView },
   
 ];

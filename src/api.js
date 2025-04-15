@@ -108,4 +108,10 @@ export const createLiteral = (data) => api.post('/literal', data);
 export const updateLiteral = (id, data) => api.put(`/literal/${id}`, data);
 export const deleteLiteral = (id) => api.delete(`/literal/${id}`);
 
+//Literal
+export const getNumerales = () => api.get('/numeral');
+export const createNumeral = (data) => api.post('/numeral', data);
+export const updateNumeral = (id, data) => api.put(`/numeral/${id}`, data);
+export const deleteNumeral = (id) => api.delete(`/numeral/${id}`);
+
 export default api;
