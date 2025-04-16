@@ -52,14 +52,15 @@ export const updateUsuario = (email, data) => api.put(`/usuario/${email}`, data)
 export const deleteUsuario = (email) => api.delete(`/usuario/${email}`);
 
 export const login = (email, contrasena)=>api.api.get(`login/${email,contrasena}`);
+
 //Sentido
-export const getSentidos = () => axios.get('/sentido');
+export const getSentidos = () => api.get('/sentido');
 export const createSentido = (data) => axios.post('/sentido', data);
 export const updateSentido = (id, data) => axios.put(`${'/sentido'}/${id}`, data);
 export const deleteSentido = (id) => axios.delete(`${'/sentido'}/${id}`);
 
 //Frecuencia
-export const getFrecuencias = () => axios.get('/frecuencia');
+export const getFrecuencias = () => api.get('/frecuencia');
 export const createFrecuencia = (data) => axios.post('/frecuencia', data);
 export const updateFrecuencia = (id, data) => axios.put(`${'/frecuencia'}/${id}`, data);
 export const deleteFrecuencia = (id) => axios.delete(`${'/frecuencia'}/${id}`);
@@ -119,5 +120,11 @@ export const getParagrafos = () => api.get('/paragrafo');
 export const createParagrafo = (data) => api.post('/paragrafo', data);
 export const updateParagrafo = (id, data) => api.put(`/paragrafo/${id}`, data);
 export const deleteParagrafo = (id) => api.delete(`/paragrafo/${id}`);
+
+//Indicador
+export const getIndicadores = () => api.get('/indicador');
+export const createIndicador = (data) => api.post('/indicador', data);
+export const updateIndicador = (id, data) => api.put(`/indicador/${id}`, data);
+export const deleteIndicador = (id) => api.delete(`/indicador/${id}`);
 
 export default api;

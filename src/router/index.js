@@ -25,7 +25,7 @@ import ArticuloView from '@/views/ArticuloView.vue';
 import FuentesPorIndicadorView from '@/views/FuentesPorIndicadorView.vue';
 import LiteralView from '@/views/LiteralView.vue';
 import NumeralView from '@/views/NumeralView.vue';
-import IndicadoresView from '@/views/IndicadoresView.vue';
+import IndicadorView from '@/views/IndicadorView.vue';
 import ParagrafoView from '@/views/ParagrafoView.vue';
 import ReportesView from '@/views/ReportesView.vue';
 import ConfiguracionView from '@/views/ConfiguracionView.vue';
@@ -44,7 +44,7 @@ const routes = [
   { path: '/login', component: LoginView },
   { path: '/sentido', component: SentidoView },
   { path: '/frecuencia', component: FrecuenciaView },
-  { path: '/indicadores', component: IndicadoresView },
+  { path: '/indicador', component: IndicadorView },
   { path: '/represenvisual', component: RepresenVisualView },
   { path: '/reportes', component: ReportesView },
   

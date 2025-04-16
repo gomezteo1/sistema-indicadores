@@ -23,7 +23,7 @@
           <li><RouterLink to="/actor">Actor</RouterLink></li>
           <li><RouterLink to="/articulo">Articulo</RouterLink></li>
           <li><RouterLink to="/fuentesporindicador">Fuente Por Indicador</RouterLink></li>
-          <li><RouterLink to="/#">#</RouterLink></li>
+          <li><RouterLink to="/indicador">Indicador</RouterLink></li>
           <li><RouterLink to="/literal">Literal</RouterLink></li>
           <li><RouterLink to="/numeral">Numeral</RouterLink></li>
           <li><RouterLink to="/paragrafo">Paragrafo</RouterLink></li>
