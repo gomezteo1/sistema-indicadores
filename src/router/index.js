@@ -29,6 +29,7 @@ import IndicadorView from '@/views/IndicadorView.vue';
 import ParagrafoView from '@/views/ParagrafoView.vue';
 import ReportesView from '@/views/ReportesView.vue';
 import ConfiguracionView from '@/views/ConfiguracionView.vue';
+import RepresenVisualPorIndicadorView from '@/views/RepresenVisualPorIndicadorView.vue';
 
 const routes = [
   { path: '/', component: HomeView },
@@ -54,8 +55,9 @@ const routes = [
   { path: '/literal', component: LiteralView },
   { path: '/numeral', component: NumeralView },
   { path: '/paragrafo', component: ParagrafoView },
+  { path: '/represenvisualporindicador', component: RepresenVisualPorIndicadorView },
   { path: '/configuracion', component: ConfiguracionView },
-  
+  //RepresenVisualPorIndicadorView.vue
 ];
 
 const router = createRouter({

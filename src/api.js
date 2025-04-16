@@ -127,5 +127,12 @@ export const createIndicador = (data) => api.post('/indicador', data);
 export const updateIndicador = (id, data) => api.put(`/indicador/${id}`, data);
 export const deleteIndicador = (id) => api.delete(`/indicador/${id}`);
 
+//represenvisualporindicador
+export const getRepresenVisualesPorIndicadores = () => api.get('/represenvisualporindicador');
+export const createRepresenVisualPorIndicador = (data) => api.post('/represenvisualporindicador', data);
+export const updateRepresenVisualesPorIndicador = (id, data) => api.put(`/represenvisualporindicador/${id}`, data);
+export const deleteRepresenVisualesPorIndicador = (id) => api.delete(`/represenvisualporindicador/${id}`);
+
+
 
 export default api;
