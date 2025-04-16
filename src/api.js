@@ -127,4 +127,5 @@ export const createIndicador = (data) => api.post('/indicador', data);
 export const updateIndicador = (id, data) => api.put(`/indicador/${id}`, data);
 export const deleteIndicador = (id) => api.delete(`/indicador/${id}`);
 
+
 export default api;
