@@ -36,8 +36,8 @@
             <li><RouterLink to="/literal" @click="closeMenu">Literal</RouterLink></li>
             <li><RouterLink to="/numeral" @click="closeMenu">Numeral</RouterLink></li>
             <li><RouterLink to="/paragrafo" @click="closeMenu">Paragrafo</RouterLink></li>
-            <li><RouterLink to="/represenvisualporindicador" @click="closeMenu">Represen Vi x Indicador</RouterLink></li>
-            <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>
+            <li><RouterLink to="/represenvisualporindicador" @click="closeMenu">Represen Visu x Indicador</RouterLink></li>
+            <li><RouterLink to="/responsablesporindicador" @click="closeMenu">Responsable Por Indicador</RouterLink></li>
             <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>
             <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>
             <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>

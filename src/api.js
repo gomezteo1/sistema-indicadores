@@ -7,14 +7,6 @@ const api = axios.create({
   },
 });
 
-// Funciones CRUD Indicdor en progreso
-export const obtenerIndicadores = () => api.get('/indicadores');
-export const crearIndicador = (data) => api.post('/indicadores', data);
-export const actualizarIndicador = (id, data) => api.put(`/indicadores/${id}`, data);
-export const eliminarIndicador = (id) => api.delete(`/indicadores/${id}`);
-
-//############### Son funcionalidad para vistas sin dependencias  
-
 //Subsecion
 export const getSubsecciones = () => api.get('/subseccion');
 export const createSubseccion = (data) => api.post('/subseccion', data);
@@ -50,7 +42,6 @@ export const getUsuarios = () => api.get('/usuario');
 export const createUsuario = (data) => api.post('/usuario', data);
 export const updateUsuario = (email, data) => api.put(`/usuario/${email}`, data);
 export const deleteUsuario = (email) => api.delete(`/usuario/${email}`);
-
 export const login = (email, contrasena)=>api.api.get(`login/${email,contrasena}`);
 
 //Sentido
@@ -102,14 +93,13 @@ export const createFuentePorIndicador = (data) => api.post('/fuentesporindicador
 export const updateFuentePorIndicador = (id, data) => api.put(`/fuentesporindicador/${id}`, data);
 export const deleteFuentePorIndicador = (id) => api.delete(`/fuentesporindicador/${id}`);
 
-
 //Literal
 export const getLiterales = () => api.get('/literal');
 export const createLiteral = (data) => api.post('/literal', data);
 export const updateLiteral = (id, data) => api.put(`/literal/${id}`, data);
 export const deleteLiteral = (id) => api.delete(`/literal/${id}`);
 
-//Literal
+//Numeral
 export const getNumerales = () => api.get('/numeral');
 export const createNumeral = (data) => api.post('/numeral', data);
 export const updateNumeral = (id, data) => api.put(`/numeral/${id}`, data);
@@ -127,12 +117,23 @@ export const createIndicador = (data) => api.post('/indicador', data);
 export const updateIndicador = (id, data) => api.put(`/indicador/${id}`, data);
 export const deleteIndicador = (id) => api.delete(`/indicador/${id}`);
 
+// Funciones CRUD Indicdor en progreso
+export const obtenerIndicadores = () => api.get('/indicadores');
+export const crearIndicador = (data) => api.post('/indicadores', data);
+export const actualizarIndicador = (id, data) => api.put(`/indicadores/${id}`, data);
+export const eliminarIndicador = (id) => api.delete(`/indicadores/${id}`);
+
+
 //represenvisualporindicador
 export const getRepresenVisualesPorIndicadores = () => api.get('/represenvisualporindicador');
 export const createRepresenVisualPorIndicador = (data) => api.post('/represenvisualporindicador', data);
 export const updateRepresenVisualesPorIndicador = (id, data) => api.put(`/represenvisualporindicador/${id}`, data);
 export const deleteRepresenVisualesPorIndicador = (id) => api.delete(`/represenvisualporindicador/${id}`);
 
-
+//responsablesporindicador
+export const getResponsablesPorIndicadores = () => api.get('/responsablesporindicador');
+export const createResponsablesPorIndicador = (data) => api.post('/responsablesporindicador', data);
+export const deleteResponsablesPorindicador = (ids) => api.delete(`/responsablesporindicador/${ids}`);
+export const updateResponsablesPorindicador = (id, data) => api.put(`/responsablesporindicador/${id}`, data);
 
 export default api;
