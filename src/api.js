@@ -116,13 +116,11 @@ export const getIndicadores = () => api.get('/indicador');
 export const createIndicador = (data) => api.post('/indicador', data);
 export const updateIndicador = (id, data) => api.put(`/indicador/${id}`, data);
 export const deleteIndicador = (id) => api.delete(`/indicador/${id}`);
-
-// Funciones CRUD Indicdor en progreso
+//redundancia xd
 export const obtenerIndicadores = () => api.get('/indicadores');
 export const crearIndicador = (data) => api.post('/indicadores', data);
 export const actualizarIndicador = (id, data) => api.put(`/indicadores/${id}`, data);
 export const eliminarIndicador = (id) => api.delete(`/indicadores/${id}`);
-
 
 //represenvisualporindicador
 export const getRepresenVisualesPorIndicadores = () => api.get('/represenvisualporindicador');
@@ -153,5 +151,11 @@ export const getVariables = () => api.get('/variable');
 export const createVariable = (data) => api.post('/variable', data);
 export const deleteVariable = (ids) => api.delete(`/variable/${ids}`);
 export const updateVariable = (id, data) => api.put(`/variable/${id}`, data);
+
+//variableporindicador
+export const getVariablesPorIndicadores = () => api.get('/variableporindicador');
+export const createVariablePorIndicador = (data) => api.post('/variableporindicador', data);
+export const deleteVariablePorIndicador = (ids) => api.delete(`/variableporindicador/${ids}`);
+export const updateVariablePorIndicador = (id, data) => api.put(`/variableporindicador/${id}`, data);
 
 export default api;

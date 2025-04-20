@@ -34,6 +34,7 @@ import ResponsablesPorIndicadorView from '@/views/ResponsablesPorIndicadorView.v
 import ResultadoIndicadorView from '@/views/ResultadoIndicadorView.vue';
 import RolUsuarioView from '@/views/RolUsuarioView.vue';
 import VariableView from '@/views/VariableView.vue';
+import VariablePorIndicadorView from '@/views/VariablePorIndicadorView.vue';
 
 const routes = [
   { path: '/', component: HomeView },
@@ -65,6 +66,7 @@ const routes = [
   { path: '/resultadoindicador', component: ResultadoIndicadorView },
   { path: '/rolusuario', component: RolUsuarioView },
   { path: '/variable', component: VariableView },
+  { path: '/variableporindicador', component: VariablePorIndicadorView },
  
 ];
 

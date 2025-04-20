@@ -29,21 +29,22 @@
           </ul>
         
           <ul class="nav-list"><h3>Con Dependencias</h3>
-            <li><RouterLink to="/actor" @click="closeMenu">Actor</RouterLink></li>
+            <li><RouterLink to="/login" @click="closeMenu">Login</RouterLink></li>
+            <li><RouterLink to="/#" @click="closeMenu">Cerrar Sesion</RouterLink></li>
+            <li><RouterLink to="/actor" @click="closeMenu">Actores</RouterLink></li>
             <li><RouterLink to="/articulo" @click="closeMenu">Articulo</RouterLink></li>
             <li><RouterLink to="/fuentesporindicador" @click="closeMenu">Fuente Por Indicador</RouterLink></li>
             <li><RouterLink to="/indicador" @click="closeMenu">Indicador</RouterLink></li>
             <li><RouterLink to="/literal" @click="closeMenu">Literal</RouterLink></li>
             <li><RouterLink to="/numeral" @click="closeMenu">Numeral</RouterLink></li>
             <li><RouterLink to="/paragrafo" @click="closeMenu">Paragrafo</RouterLink></li>
-            <li><RouterLink to="/represenvisualporindicador" @click="closeMenu">Represen Visu x Indicador</RouterLink></li>
-            <li><RouterLink to="/responsablesporindicador" @click="closeMenu">Responsable Por Indicador</RouterLink></li>
+            <li><RouterLink to="/represenvisualporindicador" @click="closeMenu">Represen Visu por Indicador</RouterLink></li>
+            <li><RouterLink to="/responsablesporindicador" @click="closeMenu">Responsable por Indicador</RouterLink></li>
             <li><RouterLink to="/resultadoindicador" @click="closeMenu">Resultado Indicador</RouterLink></li>
             <li><RouterLink to="/rolusuario" @click="closeMenu">Rol Usuario</RouterLink></li>
             <li><RouterLink to="/variable" @click="closeMenu">Variable</RouterLink></li>
-            <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>
-            <li><RouterLink to="/login" @click="closeMenu">Login</RouterLink></li>
-            <li><RouterLink to="/#" @click="closeMenu">Cerrar Sesion</RouterLink></li>
+            <li><RouterLink to="/variableporindicador" @click="closeMenu">Variable por Indicador</RouterLink></li>
+            
           </ul>
         </div>
       </nav>
