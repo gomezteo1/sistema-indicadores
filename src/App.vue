@@ -39,7 +39,7 @@
             <li><RouterLink to="/represenvisualporindicador" @click="closeMenu">Represen Visu x Indicador</RouterLink></li>
             <li><RouterLink to="/responsablesporindicador" @click="closeMenu">Responsable Por Indicador</RouterLink></li>
             <li><RouterLink to="/resultadoindicador" @click="closeMenu">Resultado Indicador</RouterLink></li>
-            <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>
+            <li><RouterLink to="/rol_usuario" @click="closeMenu">Rol Usuario</RouterLink></li>
             <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>
             <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>
             <li><RouterLink to="/#" @click="closeMenu">Cerrar Sesion</RouterLink></li>

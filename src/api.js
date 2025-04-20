@@ -142,4 +142,10 @@ export const createResultadoIndicador = (data) => api.post('/resultadoindicador'
 export const deleteResultadoIndicador = (ids) => api.delete(`/resultadoindicador/${ids}`);
 export const updateResultadoIndicador = (id, data) => api.put(`/resultadoindicador/${id}`, data);
 
+//ResultadoIndicador
+export const getRolesUsuarios = () => api.get('/rolusuario');
+export const createRolUsuario = (data) => api.post('/rolusuario', data);
+export const deleteRolUsuario = (ids) => api.delete(`/rolusuario/${ids}`);
+export const updateRolUsuario = (id, data) => api.put(`/rolusuario/${id}`, data);
+
 export default api;
