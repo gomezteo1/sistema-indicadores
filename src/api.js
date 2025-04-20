@@ -46,15 +46,15 @@ export const login = (email, contrasena)=>api.api.get(`login/${email,contrasena}
 
 //Sentido
 export const getSentidos = () => api.get('/sentido');
-export const createSentido = (data) => axios.post('/sentido', data);
-export const updateSentido = (id, data) => axios.put(`${'/sentido'}/${id}`, data);
-export const deleteSentido = (id) => axios.delete(`${'/sentido'}/${id}`);
+export const createSentido = (data) => api.post('/sentido', data);
+export const updateSentido = (id, data) => api.put(`${'/sentido'}/${id}`, data);
+export const deleteSentido = (id) => api.delete(`${'/sentido'}/${id}`);
 
 //Frecuencia
 export const getFrecuencias = () => api.get('/frecuencia');
-export const createFrecuencia = (data) => axios.post('/frecuencia', data);
-export const updateFrecuencia = (id, data) => axios.put(`${'/frecuencia'}/${id}`, data);
-export const deleteFrecuencia = (id) => axios.delete(`${'/frecuencia'}/${id}`);
+export const createFrecuencia = (data) => api.post('/frecuencia', data);
+export const updateFrecuencia = (id, data) => api.put(`${'/frecuencia'}/${id}`, data);
+export const deleteFrecuencia = (id) => api.delete(`${'/frecuencia'}/${id}`);
 
 //Rol
 export const getRoles = () => api.get('/rol');
