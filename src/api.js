@@ -136,4 +136,10 @@ export const createResponsablesPorIndicador = (data) => api.post('/responsablesp
 export const deleteResponsablesPorindicador = (ids) => api.delete(`/responsablesporindicador/${ids}`);
 export const updateResponsablesPorindicador = (id, data) => api.put(`/responsablesporindicador/${id}`, data);
 
+//ResultadoIndicador
+export const getResultadosIndicadores = () => api.get('/resultadoindicador');
+export const createResultadoIndicador = (data) => api.post('/resultadoindicador', data);
+export const deleteResultadoIndicador = (ids) => api.delete(`/resultadoindicador/${ids}`);
+export const updateResultadoIndicador = (id, data) => api.put(`/resultadoindicador/${id}`, data);
+
 export default api;

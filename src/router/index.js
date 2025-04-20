@@ -31,6 +31,7 @@ import ReportesView from '@/views/ReportesView.vue';
 import ConfiguracionView from '@/views/ConfiguracionView.vue';
 import RepresenVisualPorIndicadorView from '@/views/RepresenVisualPorIndicadorView.vue';
 import ResponsablesPorIndicadorView from '@/views/ResponsablesPorIndicadorView.vue';
+import ResultadoIndicadorView from '@/views/ResultadoIndicadorView.vue';
 
 const routes = [
   { path: '/', component: HomeView },
@@ -59,6 +60,7 @@ const routes = [
   { path: '/represenvisualporindicador', component: RepresenVisualPorIndicadorView },
   { path: '/configuracion', component: ConfiguracionView },
   { path: '/responsablesporindicador', component: ResponsablesPorIndicadorView },
+  { path: '/resultadoindicador', component: ResultadoIndicadorView },
 
   //ResponsablesPorIndicadorView.vue responsablesporindicador
 ];

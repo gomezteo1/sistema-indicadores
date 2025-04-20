@@ -38,7 +38,7 @@
             <li><RouterLink to="/paragrafo" @click="closeMenu">Paragrafo</RouterLink></li>
             <li><RouterLink to="/represenvisualporindicador" @click="closeMenu">Represen Visu x Indicador</RouterLink></li>
             <li><RouterLink to="/responsablesporindicador" @click="closeMenu">Responsable Por Indicador</RouterLink></li>
-            <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>
+            <li><RouterLink to="/resultadoindicador" @click="closeMenu">Resultado Indicador</RouterLink></li>
             <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>
             <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>
             <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>
