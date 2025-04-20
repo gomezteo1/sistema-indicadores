@@ -11,7 +11,7 @@
         
         <!-- Navigation lists -->
         <div class="nav-container" :class="{ 'active': menuOpen }">
-          <ul class="nav-list">
+          <ul class="nav-list"><h3>Sin Dependencias</h3>
             <li><RouterLink to="/" @click="closeMenu">Home</RouterLink></li>
             <li><RouterLink to="/about" @click="closeMenu">About</RouterLink></li>
             <li><RouterLink to="/frecuencia" @click="closeMenu">Frecuencia</RouterLink></li>
@@ -25,10 +25,10 @@
             <li><RouterLink to="/tipoactor" @click="closeMenu">Tipo Actor</RouterLink></li>
             <li><RouterLink to="/tipoindicador" @click="closeMenu">Tipo Indicador</RouterLink></li>
             <li><RouterLink to="/unidadmedicion" @click="closeMenu">Unidad de Mediciones</RouterLink></li>
-            <li><RouterLink to="/login" @click="closeMenu">Login</RouterLink></li>
+            
           </ul>
         
-          <ul class="nav-list">
+          <ul class="nav-list"><h3>Con Dependencias</h3>
             <li><RouterLink to="/actor" @click="closeMenu">Actor</RouterLink></li>
             <li><RouterLink to="/articulo" @click="closeMenu">Articulo</RouterLink></li>
             <li><RouterLink to="/fuentesporindicador" @click="closeMenu">Fuente Por Indicador</RouterLink></li>
@@ -39,9 +39,10 @@
             <li><RouterLink to="/represenvisualporindicador" @click="closeMenu">Represen Visu x Indicador</RouterLink></li>
             <li><RouterLink to="/responsablesporindicador" @click="closeMenu">Responsable Por Indicador</RouterLink></li>
             <li><RouterLink to="/resultadoindicador" @click="closeMenu">Resultado Indicador</RouterLink></li>
-            <li><RouterLink to="/rol_usuario" @click="closeMenu">Rol Usuario</RouterLink></li>
+            <li><RouterLink to="/rolusuario" @click="closeMenu">Rol Usuario</RouterLink></li>
+            <li><RouterLink to="/variable" @click="closeMenu">Variable</RouterLink></li>
             <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>
-            <li><RouterLink to="/#" @click="closeMenu">#</RouterLink></li>
+            <li><RouterLink to="/login" @click="closeMenu">Login</RouterLink></li>
             <li><RouterLink to="/#" @click="closeMenu">Cerrar Sesion</RouterLink></li>
           </ul>
         </div>
@@ -90,7 +91,11 @@ export default {
   font-weight: bold;
   color: #4caf50;
 }
-
+h3{
+  background-color: aquamarine;
+  text-decoration: dotted;
+  border-radius: 50%;
+}
 a:hover {
   background-color: aquamarine;
 }
