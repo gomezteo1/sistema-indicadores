@@ -35,34 +35,36 @@
     </div>
   </div>
 </template>
+<script>
+import { login } from '@/api.js';
 
-<script setup>
-import { ref } from 'vue';
-import axios from 'axios';
-import { useRouter } from 'vue-router';
+export default {
+  data() {
+    return {
+      email: '',
+      contrasena: '',
+      error: '',
+    };
+  },
+  methods: {
+    async handleLogin() {
+      try {
+        const response = await login(this.email, this.contrasena);
+        const { token, rol } = response.data;
 
-const email = ref('');
-const contrasena = ref('');
-const error = ref('');
-const router = useRouter();
-
-const login = async () => {
-  try {
-    const response = await axios.get(`https://localhost:7222/api/usuario/${email.value}`);
-    
-    if (response.data.contrasena === contrasena.value) {
-      localStorage.setItem('user', JSON.stringify(response.data));
-      console.log(localStorage);
-      router.push('/');
-    } else {
-      error.value = 'Contraseña incorrecta';
-    }
-  } catch (err) {
-    console.error('Error de login:', err);
-    error.value = 'Usuario no encontrado.';
-  }
+        localStorage.setItem('token', token);
+        localStorage.setItem('rol', rol); // Guarda el rol (ej: "1")
+        console.log(localStorage);
+        this.$router.push('/inicio');
+      } catch (err) {
+        console.error(err);
+        this.error = 'Correo o contraseña incorrectos';
+      }
+    },
+  },
 };
 </script>
+
 
 <style scoped>
 /* Fondo de la página (miel o café claro) */

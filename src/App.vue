@@ -63,20 +63,12 @@
 
 <script>
 
-import { ref, onMounted } from 'vue';
-
-const esAdmin = ref(false);
-
-onMounted(() => {
-  const rol = localStorage.getItem('rol');
-  esAdmin.value = rol === 'Administrador' || rol === 'admin';
-});
-
 export default {
   data() {
     return {
-      menuOpen: false
-    }
+      menuOpen: false,
+      esAdmin: false
+    };
   },
   methods: {
     toggleMenu() {
@@ -84,10 +76,18 @@ export default {
     },
     closeMenu() {
       this.menuOpen = false;
+    },
+    verificarRol() {
+      const rol = localStorage.getItem('rol');
+      this.esAdmin = rol === '1'; // Rol 1 = Admin
     }
+  },
+  mounted() {
+    this.verificarRol();
   }
-}
+};
 </script>
+
 
 <style scoped>
 /* Base styles */
