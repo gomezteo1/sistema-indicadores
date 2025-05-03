@@ -48,18 +48,34 @@ const router = useRouter();
 
 const login = async () => {
   try {
-    const response = await axios.get(`https://localhost:7222/api/usuario/${email.value}`);
-    
-    if (response.data.contrasena === contrasena.value) {
-      localStorage.setItem('user', JSON.stringify(response.data));
-      console.log(localStorage);
-      router.push('/');
-    } else {
-      error.value = 'Contraseña incorrecta';
-    }
+    // 🔥 Ahora hacemos POST al endpoint /api/auth/login
+    const response = await axios.post('https://localhost:7222/api/auth/login', {
+      email: email.value,
+      contrasena: contrasena.value
+    });
+
+    // ✅ Si llega aquí, las credenciales son correctas
+    const token = response.data.token;
+    const rol = response.data.rol;
+    const userEmail = response.data.email;
+
+    // ✅ Guardar token y datos en localStorage
+    localStorage.setItem('token', token);
+    localStorage.setItem('email', userEmail);
+    localStorage.setItem('rol', rol);
+
+    console.log('Login exitoso. Token guardado:', token);
+    console.log("localstorage:",rol);
+    // ✅ Redirigir al dashboard o página principal
+    router.push('/');
   } catch (err) {
     console.error('Error de login:', err);
-    error.value = 'Usuario no encontrado.';
+    // Si es error 401 (credenciales inválidas)
+    if (err.response && err.response.status === 401) {
+      error.value = 'Credenciales inválidas. Verifica tu email y contraseña.';
+    } else {
+      error.value = 'Ocurrió un error al iniciar sesión.';
+    }
   }
 };
 </script>

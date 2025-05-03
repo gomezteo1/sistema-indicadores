@@ -17,6 +17,7 @@ import UsuariosView from '@/views/UsuariosView.vue';
 import LoginView from '@/views/LoginView.vue';
 import LoginAuthView from '@/views/LoginAuthView.vue';
 
+//
 import SentidoView from '@/views/SentidoView.vue';
 import FrecuenciaView from '@/views/FrecuenciaView.vue';
 import RolView from '@/views/RolView.vue';
@@ -60,7 +61,6 @@ const routes = [
   { path: '/indicador', component: IndicadorView },
   { path: '/represenvisual', component: RepresenVisualView },
   { path: '/reportes', component: ReportesView },
-  { path: '/loginauth', component: LoginAuthView},
   { path: '/actor', component: ActorView },
   { path: '/articulo', component: ArticuloView },
   { path: '/fuentesporindicador', component: FuentesPorIndicadorView },

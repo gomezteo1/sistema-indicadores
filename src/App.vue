@@ -14,9 +14,10 @@
           <ul class="nav-list"><h3>Sin Dependencias</h3>
             <li><RouterLink to="/" @click="closeMenu">Inicio</RouterLink></li>
             <li><RouterLink to="/about" @click="closeMenu">About</RouterLink></li>
-            <!--<li><RouterLink to="/loginauth" @click="closeMenu">Login</RouterLink></li>-->
             <li><RouterLink to="/login" @click="closeMenu">Login</RouterLink></li>
-            <li><RouterLink to="/#" @click="closeMenu">Cerrar Sesion</RouterLink></li>
+
+            <!-- Cerramos sesión con el método -->
+            <li><a href="#" @click.prevent="cerrarSesion">Cerrar Sesión</a></li>
 
             <li><RouterLink to="/frecuencia" @click="closeMenu">Frecuencia</RouterLink></li>
             <li><RouterLink to="/fuente" @click="closeMenu">Fuente</RouterLink></li>
@@ -29,13 +30,11 @@
             <li><RouterLink to="/tipoactor" @click="closeMenu">Tipo Actor</RouterLink></li>
             <li><RouterLink to="/tipoindicador" @click="closeMenu">Tipo Indicador</RouterLink></li>
             <li><RouterLink to="/unidadmedicion" @click="closeMenu">Unidad de Mediciones</RouterLink></li>
-            
           </ul>
          
-          <ul  v-if="esAdmin" class="nav-list"><h3>Con Dependencias</h3>
-            
+          <ul v-if="esAdmin" class="nav-list">
+            <h3>Con Dependencias</h3>
             <li><RouterLink to="/actor" @click="closeMenu">Actores</RouterLink></li>
-            
             <li><RouterLink to="/fuentesporindicador" @click="closeMenu">Fuente Por Indicador</RouterLink></li>
             <li><RouterLink to="/indicador" @click="closeMenu">Indicador</RouterLink></li>
             <li><RouterLink to="/represenvisualporindicador" @click="closeMenu">Represen Visu por Indicador</RouterLink></li>
@@ -44,14 +43,7 @@
             <li><RouterLink to="/rolusuario" @click="closeMenu">Rol Usuario</RouterLink></li>
             <li><RouterLink to="/variable" @click="closeMenu">Variable</RouterLink></li>
             <li><RouterLink to="/variableporindicador" @click="closeMenu">Variable por Indicador</RouterLink></li>
-            
           </ul>
-          <!-- Funcionales al 100
-          <li><RouterLink to="/literal" @click="closeMenu">Literal</RouterLink></li>
-          <li><RouterLink to="/numeral" @click="closeMenu">Numeral</RouterLink></li>
-          <li><RouterLink to="/paragrafo" @click="closeMenu">Paragrafo</RouterLink></li>
-          <li><RouterLink to="/articulo" @click="closeMenu">Articulo</RouterLink></li>
-          -->
         </div>
       </nav>
     </header>
@@ -62,21 +54,22 @@
 </template>
 
 <script>
-
-import { ref, onMounted } from 'vue';
-
-const esAdmin = ref(false);
-
-onMounted(() => {
-  const rol = localStorage.getItem('rol');
-  esAdmin.value = rol === 'Administrador' || rol === 'admin';
-});
-
 export default {
   data() {
     return {
-      menuOpen: false
+      menuOpen: false,
+      esAdmin: false
     }
+  },
+  mounted() {
+    const token = localStorage.getItem('token');
+    const rol = localStorage.getItem('rol');
+
+    console.log('Token:', token);
+    console.log('Rol:', rol);
+
+    this.esAdmin = token && rol == "1";
+    console.log('esAdmin después de la actualización:', this.esAdmin);
   },
   methods: {
     toggleMenu() {
@@ -84,6 +77,20 @@ export default {
     },
     closeMenu() {
       this.menuOpen = false;
+    },
+    cerrarSesion() {
+      // Limpiar localStorage
+      localStorage.removeItem('token');
+      localStorage.removeItem('rol');
+
+      // Reset admin flag
+      this.esAdmin = false;
+
+      // Cerrar menú móvil
+      this.menuOpen = false;
+
+      // Redirigir al login
+      this.$router.push('/login');
     }
   }
 }

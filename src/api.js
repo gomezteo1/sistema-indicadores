@@ -7,6 +7,16 @@ const api = axios.create({
   },
 });
 
+// Interceptor para agregar el token automáticamente
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+
 //Subsecion
 export const getSubsecciones = () => api.get('/subseccion');
 export const createSubseccion = (data) => api.post('/subseccion', data);
@@ -44,9 +54,9 @@ export const updateUsuario = (email, data) => api.put(`/usuario/${email}`, data)
 export const deleteUsuario = (email) => api.delete(`/usuario/${email}`);
 
 //sin jwt
-export const login = (email, contrasena)=>api.api.get(`login/${email,contrasena}`);
+export const login = (email, contrasena)=>api.get(`login/${email,contrasena}`);
 //este tiene que tener el jwt
-export const loginAuth = (email, contrasena)=>api.api.get(`login/${email,contrasena}`);
+export const loginAuth = (email, contrasena)=>api.get(`login/${email,contrasena}`);
 
 //Sentido
 export const getSentidos = () => api.get('/sentido');
