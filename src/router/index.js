@@ -12,8 +12,11 @@ import TipoActorView from '@/views/TipoActorView.vue';
 import TipoIndicadorView from '@/views/TipoIndicadorView.vue';
 import UnidadMedicionView from '@/views/UnidadMedicionView.vue';
 import UsuariosView from '@/views/UsuariosView.vue';
+
+//logins
 import LoginView from '@/views/LoginView.vue';
 import LoginAuthView from '@/views/LoginAuthView.vue';
+
 import SentidoView from '@/views/SentidoView.vue';
 import FrecuenciaView from '@/views/FrecuenciaView.vue';
 import RolView from '@/views/RolView.vue';
@@ -48,7 +51,10 @@ const routes = [
   { path: '/usuario', component: UsuariosView },
   { path: '/fuente', component: FuenteView },
   { path: '/rol', component: RolView },
+
   { path: '/login', component: LoginView },
+  { path: '/loginauth', component: LoginAuthView },
+  
   { path: '/sentido', component: SentidoView },
   { path: '/frecuencia', component: FrecuenciaView },
   { path: '/indicador', component: IndicadorView },

@@ -42,7 +42,11 @@ export const getUsuarios = () => api.get('/usuario');
 export const createUsuario = (data) => api.post('/usuario', data);
 export const updateUsuario = (email, data) => api.put(`/usuario/${email}`, data);
 export const deleteUsuario = (email) => api.delete(`/usuario/${email}`);
+
+//sin jwt
 export const login = (email, contrasena)=>api.api.get(`login/${email,contrasena}`);
+//este tiene que tener el jwt
+export const loginAuth = (email, contrasena)=>api.api.get(`login/${email,contrasena}`);
 
 //Sentido
 export const getSentidos = () => api.get('/sentido');
