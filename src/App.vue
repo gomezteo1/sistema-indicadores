@@ -93,8 +93,9 @@ export default {
       this.$router.push('/login');
     }
   }
-}
+};
 </script>
+
 
 <style scoped>
 /* Base styles */

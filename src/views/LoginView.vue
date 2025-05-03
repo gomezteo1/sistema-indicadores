@@ -80,6 +80,7 @@ const login = async () => {
 };
 </script>
 
+
 <style scoped>
 /* Fondo de la página (miel o café claro) */
 .fondo {
