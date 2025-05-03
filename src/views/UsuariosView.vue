@@ -9,7 +9,7 @@
           <label for="email">Email:</label>
           <input
             v-model="nuevo.email"
-            type="email"
+            type="text"
             id="email"
             placeholder="email@ejemplo.com"
             required
@@ -82,10 +82,17 @@ onMounted(() => {
 const guardar = async () => {
   try {
     if (editando.value) {
-      await updateUsuario(nuevo.value.email, { ...nuevo.value });
+      // Enviar el email en la URL y también en el body (como lo espera C#)
+      await updateUsuario(nuevo.value.email, {
+        email: nuevo.value.email, // 👈 importante enviar el email
+        contrasena: nuevo.value.contrasena
+      });
       editando.value = false;
     } else {
-      await createUsuario({ ...nuevo.value });
+      await createUsuario({
+        email: nuevo.value.email,
+        contrasena: nuevo.value.contrasena
+      });
     }
     nuevo.value = { email: '', contrasena: '' };
     await cargarUsuarios();

@@ -52,6 +52,7 @@ const login = async () => {
     
     if (response.data.contrasena === contrasena.value) {
       localStorage.setItem('user', JSON.stringify(response.data));
+      console.log(localStorage);
       router.push('/');
     } else {
       error.value = 'Contraseña incorrecta';

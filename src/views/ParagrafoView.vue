@@ -1,7 +1,7 @@
 <template>
     <div class="fondo">
       <div class="container">
-        <h1 class="title">Gestión de Parárafos</h1>
+        <h1 class="title">Gestión de Parágrafos</h1>
         <p class="subtitle">Administra los parárafos legales asociados a artículos.</p>
   
         <!-- Formulario -->
