@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5171/api', // URL base del backend
+  baseURL: 'https://sistemaindicadoresback.azurewebsites.net/api', // URL base del backend
   headers: {
     'Content-Type': 'application/json',
   },
