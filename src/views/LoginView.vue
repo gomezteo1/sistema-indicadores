@@ -49,7 +49,7 @@ const router = useRouter();
 const login = async () => {
   try {
     // 🔥 Ahora hacemos POST al endpoint /api/auth/login
-    const response = await axios.post('https://localhost:7222/api/auth/login', {
+    const response = await axios.post('https://sistemaindicadoresback.azurewebsites.net/api/auth/login', {
       email: email.value,
       contrasena: contrasena.value
     });
