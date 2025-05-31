@@ -11,7 +11,7 @@
         
         <!-- Navigation lists -->
         <div class="nav-container" :class="{ 'active': menuOpen }">
-          <ul class="nav-list"><h3>Sin Dependencias</h3>
+          <ul class="nav-list"><h3></h3>
             <li><RouterLink to="/" @click="closeMenu">Inicio</RouterLink></li>
             <li><RouterLink to="/about" @click="closeMenu">About</RouterLink></li>
             <li><RouterLink to="/login" @click="closeMenu">Login</RouterLink></li>
@@ -33,7 +33,7 @@
           </ul>
          
           <ul v-if="esAdmin" class="nav-list">
-            <h3>Con Dependencias</h3>
+            <h3></h3>
             <li><RouterLink to="/actor" @click="closeMenu">Actores</RouterLink></li>
             <li><RouterLink to="/fuentesporindicador" @click="closeMenu">Fuente Por Indicador</RouterLink></li>
             <li><RouterLink to="/indicador" @click="closeMenu">Indicador</RouterLink></li>
